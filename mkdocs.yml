@@ -1,0 +1,7 @@
+site_name: django Notes
+nav:
+  - index: index.md
+  - into: into.md
+  - urls: urls.md
+  - deploy: deploy.md
+theme: readthedocs
