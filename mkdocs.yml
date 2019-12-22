@@ -4,4 +4,5 @@ nav:
   - into: into.md
   - urls: urls.md
   - deploy: deploy.md
+  - template: template.md
 theme: readthedocs
