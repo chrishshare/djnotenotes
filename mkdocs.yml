@@ -5,6 +5,9 @@ nav:
   - urls: urls.md
   - deploy: deploy.md
   - template: template.md
+  - settings: settings.md
+  - other: other.md
+  - log: log.md
 theme:
   name: 'material'
   palette:
