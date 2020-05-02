@@ -191,5 +191,21 @@ class CategoryConverter(object):
 register_converter(CategoryConverter,'cate')
 ```
 
+## 图片等静态资源无法访问
+```
+from django.conf.urls.static import static
+from django.conf import settings
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('v1/qryproducttype', views.query_product_type_api_view, name='qryproducttype'),
+    path('v1/qryproductsize', views.query_product_size_api_view, name='qryproductsize'),
+    path('v1/qryproductcolor', views.query_product_color_api_view, name='qryproductcolor'),
+    path('v1/qryproductlist', views.query_product_list_api_view, name='qryproductlist'),
+    path('v1/qrylink', views.query_friendly_link_api_view, name='qrylink'),
+    path('v1/qrycarousel', views.query_carousel_api_view, name='qrycarousel'),
+    path('v1/qrycase', views.query_project_case_api_view, name='qrycase')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
 
 
