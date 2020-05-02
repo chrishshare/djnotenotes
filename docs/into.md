@@ -48,3 +48,25 @@
 
 ## ALLOWED_HOSTS：
 这个变量是用来设置以后别人只能通过这个变量中的ip地址或者域名来进行访问。
+
+
+## admin过滤
+```
+@admin.register(ProductListManage)
+class ProductListManageAdmin(admin.ModelAdmin):
+    list_display = ('product_code', 'product_name', 'product_price', 'product_type')
+
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        if db_field.name == 'product_type':
+            kwargs['queryset'] = DictGroupManage.objects.filter(group_id='producttype')
+        if db_field.name == 'product_size':
+            kwargs['queryset'] = DictGroupManage.objects.filter(group_id='productsize')
+        if db_field.name == 'product_color':
+            kwargs['queryset'] = DictGroupManage.objects.filter(group_id='productcolor')
+        return super().formfield_for_dbfield(db_field, request, **kwargs)
+```
+
+## vuestyle绑定背景色
+```
+:style="{'color':cl.ccolor, 'background': cl.bgcolor, backgroundImage:'url(' + mediaUrl + cl.bgimg + ')'}"
+```
