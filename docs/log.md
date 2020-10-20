@@ -67,6 +67,11 @@ LOGGING = {
             'propagate': True,  # 向不向更高级别的logger传递
         }
     },
+    'django.db.backends': {
+        'handlers': ['console'],
+        'propagate': True,
+        'level': 'DEBUG',
+    },
 }
 ```
 
@@ -77,28 +82,5 @@ import logging
 
 # 生成一个以当前文件名为名字的logger实例
 logger = logging.getLogger(__name__)
-
-```
-
-
-## 显示sql语句的日志配置
-```
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console':{
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'propagate': True,
-            'level': 'DEBUG',
-        },
-    }
-}
 
 ```
